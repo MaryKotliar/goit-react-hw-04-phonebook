@@ -22,7 +22,7 @@ export function App() {
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify('contacts'));
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
   const addContact = contact => {
@@ -46,6 +46,7 @@ export function App() {
   };
   const filterByName = () => {
     const normalizedFilter = filter.toLowerCase();
+    console.log(normalizedFilter);
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
@@ -75,3 +76,8 @@ export function App() {
     </Container>
   );
 }
+// () => {
+//   return (
+//     JSON.parse(window.localStorage.getItem('contacts')) ?? initialContacts
+//   );
+// }

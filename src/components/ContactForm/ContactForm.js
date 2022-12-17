@@ -22,6 +22,7 @@ export const ContactForm = ({ onSubmit }) => {
         break;
       case 'number':
         setNumber(value);
+        break;
       default:
         return;
     }
